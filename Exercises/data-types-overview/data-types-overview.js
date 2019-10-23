@@ -2,14 +2,16 @@
 
 //number
 const number = 123;
-const number2 = Number('456');
+const number2 = new Number('456'); //in this case the type is object
+
 //string
 const string = 'some string';
-const string2 = String('new string');
+const string2 = new String('new string'); //in this case the type is object
 
 //boolean
 const booleanVariable = true;
-const booleanVariable2 = Boolean(false);
+const booleanVariable2 = new Boolean(false); //in this case the type is object and value = 'true'
+
 
 //undefined
 let undefinedVariable;
@@ -19,9 +21,9 @@ const nullVariable = null;
 
 //object
 const object = {
-  a: 1,
-  b: 'text',
-  c: { d: 'a', e: null }
+    a: 1,
+    b: 'text',
+    c: { d: 'a', e: null }
 };
 
 // Use operator typeof on each of them.
@@ -39,12 +41,12 @@ console.log(typeof object);
 // Demonstrate object's references.
 
 const objectWithReferences = {
-  number: 333,
-  string: 'some text',
-  'long name': undefined,
-  nullVariable: null,
-  booleanVariable: false,
-  object2: { a: 123, b: 'text' }
+    number: 333,
+    string: 'some text',
+    'long name': undefined,
+    nullVariable: null,
+    booleanVariable: false,
+    object2: { a: 123, b: 'text' }
 };
 
 const objectWithReferencesNew = objectWithReferences;
@@ -70,15 +72,12 @@ const array = [123, 'string', false, null, undefined, { a: 1 }];
 
 // Iterate through it and collect amount of each data type to object.
 
-const typesCount = {
-  number : 0,
-  string: 0,
-  boolean: 0,
-  object: 0,
-  undefined: 0 };
+const typesCount = {};
 
 for (let i = 0; i < array.length; i++) {
-  typesCount[typeof array[i]] += 1;
+    if (typesCount[typeof array[i]] === undefined) {
+        typesCount[typeof array[i]] = 0;
+    }
+    typesCount[typeof array[i]] += 1;
 }
-
 console.log(typesCount);
