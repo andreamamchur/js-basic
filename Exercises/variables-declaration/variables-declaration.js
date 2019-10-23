@@ -17,7 +17,7 @@ var globalObject = 2;
 
 let sameName = 1;
 {
-  let sameName = 2;
+  sameName = 2;
 }
 
 // Declare a variable with hosting.
