@@ -1,4 +1,5 @@
 // Declare a variable on each type using two options: plain creation, creation with constructor.
+/* eslint-disable no-new-wrappers, no-new-object, no-array-constructor */
 
 //number
 const number = 123;
@@ -21,10 +22,11 @@ const nullVariable = null;
 
 //object
 const object = {
-    a: 1,
-    b: 'text',
-    c: { d: 'a', e: null }
+  a: 1,
+  b: 'text',
+  c: { d: 'a', e: null }
 };
+const object2 = new Object({ one : 1, two : 'string' });
 
 // Use operator typeof on each of them.
 
@@ -37,16 +39,17 @@ console.log(typeof booleanVariable2);
 console.log(typeof undefinedVariable);
 console.log(typeof nullVariable);
 console.log(typeof object);
+console.log(typeof object2);
 
 // Demonstrate object's references.
 
 const objectWithReferences = {
-    number: 333,
-    string: 'some text',
-    'long name': undefined,
-    nullVariable: null,
-    booleanVariable: false,
-    object2: { a: 123, b: 'text' }
+  number: 333,
+  string: 'some text',
+  'long name': undefined,
+  nullVariable: null,
+  booleanVariable: false,
+  object2: { a: 123, b: 'text' }
 };
 
 const objectWithReferencesNew = objectWithReferences;
@@ -75,9 +78,7 @@ const array = [123, 'string', false, null, undefined, { a: 1 }];
 const typesCount = {};
 
 for (let i = 0; i < array.length; i++) {
-    if (typesCount[typeof array[i]] === undefined) {
-        typesCount[typeof array[i]] = 0;
-    }
-    typesCount[typeof array[i]] += 1;
+  const type = typeof array[i];
+  typesCount[type] = (typesCount[type] || 0) + 1;
 }
 console.log(typesCount);
