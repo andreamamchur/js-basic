@@ -53,19 +53,19 @@ function passwordGeneration(password) {
   const specialCharacters = ['!', '_', '-', '%', '(', ')', '#', '*', '{', '}'];
   let specialCharacterCheck = false;
 
-  for (const char of password) {
-    if (specialCharacters.includes(char)) {
+  for (const char of specialCharacters) {
+    if (password.includes(char)) {
       specialCharacterCheck = true;
     }
   }
 
   if (!specialCharacterCheck) {
-    newPassword += specialCharacters[Math.round(Math.random() * specialCharacters.length)];
+    newPassword += specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
   }
 
   if (password === password.toLowerCase()) {
     const index = Math.floor(Math.random() * password.length);
-    newPassword = password.substr(0, index) + password[index].toUpperCase() + password.slice(index + 1);
+    newPassword = newPassword.substr(0, index) + newPassword[index].toUpperCase() + newPassword.slice(index + 1);
   }
 
   if (password.length < 8) {
