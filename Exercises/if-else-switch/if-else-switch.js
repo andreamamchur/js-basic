@@ -9,8 +9,8 @@ const specialCharacters = ['!', '_', '-', '%', '(', ')', '#', '*', '{', '}'];
 let arrayResult = [];
 
 function getMissingComplexityElementCode(password) {
-  for (const char of password) {
-    if (specialCharacters.includes(char)) {
+  for (const char of specialCharacters) {
+    if (password.includes(char)) {
       specialCharacterCheck = true;
     }
   }
@@ -32,17 +32,17 @@ function getMissingComplexityElementCode(password) {
 function getErrorMessage(array) {
   for (const char of array) {
     // eslint-disable-next-line default-case
-    switch (char) {
-    case 0:
-      console.log('The lenght of the password is less than 8 characters');
+    switch (codeToMissingComplexityElement[char]) {
+    case 'length':
+      console.log('The length of the password is less than 8 characters');
       break;
-    case 1:
+    case 'capital letter':
       console.log('Password does not contain capital letter');
       break;
-    case 2:
+    case 'special character':
       console.log('Password does not contain special characters');
       break;
-    case 3:
+    case 'cannot be empty':
       console.log('Password can\'t be empty');
       break;
     }
