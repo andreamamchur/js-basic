@@ -11,12 +11,7 @@ const expressionFunction = function () {
 };
 
 //lambda function
-function invoke(lam) {
-  console.log(lam());
-}
-
-const lambda = function () { return 'foo'; };
-invoke(lambda);
+const lambda = () => alert('lambda function');
 
 //function object
 const functionObject = {
@@ -33,12 +28,9 @@ function takeMyParametersAmount(one, two, three, ...others) {
 }
 
 //Create a function and log all passed parameters to it. Check the `length` of this function.
-function returnParameters() {
-  for (let i = 0; i < arguments.length; i++) {
-    // eslint-disable-next-line prefer-rest-params
-    console.log(arguments[i]);
-  }
-  console.log(`Length - ${arguments.length}`);
+function returnParameters(...arg) {
+  console.log(arg);
+  console.log(`Length - ${arg.length}`);
 }
 
 //Using anonymous function encapsulate function body from global scope.
