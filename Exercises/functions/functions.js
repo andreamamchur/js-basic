@@ -14,23 +14,19 @@ const expressionFunction = function () {
 const lambda = () => alert('lambda function');
 
 //function object
-const functionObject = {
-
-  key() { return console.log('function object'); },
-  key2: function () { return console.log('function object.variant 2'); }
-
-}
+// eslint-disable-next-line no-new-func
+const functionObject = new Function('console.log("function was created using constructor")');
 
 
 //Get parameters amount of function `takeMyParametersAmount`.
 function takeMyParametersAmount(one, two, three, ...others) {
-  console.log(takeMyParametersAmount.length);
+  return takeMyParametersAmount.length;
 }
 
 //Create a function and log all passed parameters to it. Check the `length` of this function.
 function returnParameters(...arg) {
   console.log(arg);
-  console.log(`Length - ${arg.length}`);
+  console.log(`Length - ${returnParameters.length}`);
 }
 
 //Using anonymous function encapsulate function body from global scope.
