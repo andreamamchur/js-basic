@@ -31,7 +31,17 @@ const arrayToFilter = Array.from(new Array(1000), () => {
   return null;
 });
 
-const newArray = arrayToFilter.filter(item => Number.isInteger(item));
+//const newArray = arrayToFilter.filter(item => Number.isInteger(item));
+
+let i = 0;
+
+while (i < arrayToFilter.length) {
+  if (!Number.isInteger(arrayToFilter[i])) {
+    arrayToFilter.splice(i, 1);
+    i--;
+  }
+  i++;
+}
 
 //Make while loop until sum of randomly generated values will be greater than `200` and save amount of iterations.
 
