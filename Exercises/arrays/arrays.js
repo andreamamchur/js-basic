@@ -1,8 +1,7 @@
 //Make a function which will generate array with random length and random values.
 
-// eslint-disable-next-line array-callback-return
 function randomArray() {
-  return Array.from(new Array(Math.floor(Math.random() * 100)), () => { return Math.floor(Math.random() * 10); });
+  return Array.from(new Array(Math.floor(Math.random() * 100)), () =>  Math.floor(Math.random() * 10));
 }
 
 //Make a function which will take array and return copy of it.
@@ -30,6 +29,8 @@ function arrayChange(array, index) {
   return array;
 }
 
-function arrayCopy2(array) {
-  return array.slice();
+function arrayChangePure(array, index) {
+  const newArray = array.slice();
+  newArray.splice(index, 1, Math.floor(Math.random() * 100));
+  return newArray;
 }
