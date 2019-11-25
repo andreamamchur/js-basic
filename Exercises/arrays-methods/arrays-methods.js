@@ -5,13 +5,13 @@
 // }
 
 function includes(array, element) {
-  return array.some((item) => item / element === 1);
+  return array.indexOf(element) !== -1;
 }
 
 // Create a function which will check that all array elements are even.
 
 function checkEven(array) {
-  return array.every((element) => element % 2 === 0);
+  return array.every((element) => !(element % 2));
 }
 // Create a function which will check that passed parameter is `array`;
 
