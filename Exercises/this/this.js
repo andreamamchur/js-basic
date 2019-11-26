@@ -38,9 +38,10 @@ const object = {
   name: 'Ivan',
   objectFunc() {
     // eslint-disable-next-line no-undef
-    addSurname = () => {
+    const addSurname = () => {
       this.surname = 'Ivanov';
     };
+    // eslint-disable-next-line no-undef
     addSurname();
   }
 };
@@ -52,7 +53,7 @@ const newObject = {
   model: 'Accord',
   objectFunc() {
     return {
-      car: `${this.make} ${this.model}`,
+      car: () => `${this.make} ${this.model}`,
       color: 'Black'
     };
   }
