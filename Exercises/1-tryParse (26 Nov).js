@@ -43,5 +43,6 @@ function stringify(object) {
 //https://www.codewars.com/kata/is-the-date-today/javascript
 
 function isToday(date) {
-  let today = new Date();
+  const today = new Date();
   return (today.getFullYear() === date.getFullYear() && today.getMonth() === date.getMonth() && today.getDate() === date.getDate())
+}
