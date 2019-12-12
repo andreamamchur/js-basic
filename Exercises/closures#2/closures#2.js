@@ -36,25 +36,12 @@ function sometimes(fn) {
   let count = 0;
 
   return function () {
-    // eslint-disable-next-line prefer-spread,prefer-rest-params
-    return ++count && (count < 4 || count % 2) ? fn.apply(null, arguments) : 'hmm, I don\'t know!';
+    return (...args) =>  (++count && (count < 4 || count % 2) ? fn(...args) : 'hm, I don\'t know!');
   };
 }
 
 // Write a function which will log sum of arguments passed using closures. Example:
-function summ(a) {
-  let currentSum = a;
-  console.log(a)
-
-  function f(b) {
-    currentSum += b;
-    console.log(currentSum)
-    return f;
-  }
-
-  f.toString = function () {
-    return currentSum;
-  };
-
-  return f;
-}
+const summation = first => {
+  console.log(first);
+  return second => summation(first + second);
+};
